@@ -6,7 +6,7 @@ A responsive, recruiter-focused portfolio presented as a 32-page 3D passport. It
 
 - Two-sided CSS 3D page turns with paper depth, cover edges, and a central binding
 - Desktop spreads and individual mobile pages, with buttons, keyboard arrows, pointer-following drag turns, and chapter shortcuts
-- Career highlights and quantified internship impact
+- Career highlights and quantified internship impact, with illustrated Ford and Skyjack field-note panels in both views
 - 23 projects grouped into Machine Learning, Backend, Full Stack, Mobile Apps, and Extensions & Automation, with a project directory and category shortcuts
 - Full technical skills, education, coursework, and certifications
 - Responsive navigation, section tracking, reduced-motion support, and accessible semantics
@@ -28,3 +28,5 @@ Use the **Explore projects** menu above the book or the **Projects** chapter’s
 The existing HTML remains the source of portfolio content and is available through **Reading view**, including project filters. The book is assembled by `assets/js/passport.js` and styled by `assets/css/passport.css`. The book fits the viewport and keeps navigation arrows visible without scrolling the webpage. Dense pages scroll internally so content remains accessible at small sizes and when zoomed. Drag the right page left to advance, or the left page right to go back; on phones, drag in either direction. Release past 30% of the page width to complete a turn, or release earlier to return it. Reduced-motion preferences disable page-turn animation.
 
 The passport identity page and reading-view identity card use the supplied portrait in `public/musab-portrait.jpg`, with descriptive alternative text and natural colors.
+
+Experience artwork uses locally saved illustrations in `public/experience-ford.png` and `public/experience-skyjack.png`. Generation prompts and asset details are documented in `docs/experience-artwork.md`.

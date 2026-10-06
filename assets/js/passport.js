@@ -58,6 +58,10 @@ addPage('Profile', 'The journey so far', `
 source.querySelectorAll('.experience-entry').forEach((entry, index) => {
   addPage('Experience', ['Ford · Wireless connectivity', 'Ford · Test automation', 'Skyjack · Engineering'][index], `
     <div class="document-heading"><span>PROFESSIONAL EXPERIENCE</span><span>ENTRY 0${index + 1}</span></div>
+    <figure class="experience-art ${entry.querySelector('.experience-art').classList.contains('experience-art--skyjack') ? 'experience-art--skyjack' : 'experience-art--ford'}" aria-hidden="true">
+      <span class="experience-art-orbit"></span>
+      <img src="${entry.querySelector('.experience-art img').getAttribute('src')}" alt="" width="1536" height="1024" decoding="async">
+    </figure>
     <div class="work-top"><div class="work-date">${entry.querySelector('.entry-meta p').innerHTML}</div>${entry.querySelector('.entry-stamp').outerHTML}</div>
     <div class="folio-work">${entry.querySelector('.entry-content').innerHTML}</div>
   `, 'work-sheet');
