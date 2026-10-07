@@ -21,27 +21,76 @@ let spread = 0;
 let coverOpen = true;
 let turning = false;
 let arrivalTimer;
+let arrivalStage;
+let arrivalOpenFrame;
 
 function finishArrival() {
   clearTimeout(arrivalTimer);
+  cancelAnimationFrame(arrivalOpenFrame);
   app.classList.remove('is-arriving');
+  arrivalStage?.remove();
+  arrivalStage = null;
+}
+
+function completeArrival() {
+  const wasArriving = app.classList.contains('is-arriving');
+  finishArrival();
+  if (!wasArriving) return;
+  // Commit the settled cover before starting its existing hinged flip transition.
+  frontCover.getBoundingClientRect();
+  arrivalOpenFrame = requestAnimationFrame(() => {
+    if (!app.hidden && document.body.classList.contains('book-mode')) setCoverOpen(true);
+  });
 }
 
 function startArrival() {
-  if (reducedMotion.matches) return;
+  if (reducedMotion.matches) {
+    setCoverOpen(true);
+    return;
+  }
+  arrivalStage = document.createElement('div');
+  arrivalStage.className = 'passport-arrival-stage';
+  arrivalStage.setAttribute('aria-hidden', 'true');
+  arrivalStage.inert = true;
+  const carousel = document.createElement('div');
+  carousel.className = 'arrival-carousel';
+  const colors = ['#183b5d', '#663047', '#285358', '#65503a', '#393f52', '#53436a', '#374c70', '#754b44'];
+  colors.forEach((color, index) => {
+    const orbit = document.createElement('div');
+    orbit.className = `arrival-orbit${index === 0 ? ' arrival-selected' : ''}`;
+    orbit.style.setProperty('--orbit-angle', `${index * 45}deg`);
+    orbit.style.setProperty('--orbit-color', color);
+    const face = document.createElement('div');
+    face.className = 'passport-front-cover arrival-face';
+    face.innerHTML = frontCover.innerHTML;
+    if (index !== 0) {
+      face.querySelector('.cover-top').innerHTML = 'PORTFOLIO COLLECTION<span>ENGINEERING &amp; IDEAS</span>';
+      face.querySelector('.cover-bottom').innerHTML = `A WORLD OF POSSIBILITIES <span>0${index + 1}</span>`;
+    }
+    const back = document.createElement('div');
+    back.className = 'arrival-back';
+    back.innerHTML = frontCover.querySelector('.cover-art').innerHTML;
+    orbit.append(face, back);
+    carousel.append(orbit);
+  });
+  arrivalStage.append(carousel);
+  scene.insertBefore(arrivalStage, frontCover);
   app.classList.add('is-arriving');
   // Also settle if an animation-end event is missed while the tab is hidden.
-  arrivalTimer = setTimeout(finishArrival, 3400);
+  arrivalTimer = setTimeout(completeArrival, 5000);
 }
 
 frontCover.addEventListener('animationend', event => {
-  if (event.target === frontCover && event.animationName === 'passport-arrival') finishArrival();
+  if (event.target === frontCover && event.animationName === 'passport-arrival') completeArrival();
 });
 frontCover.addEventListener('animationcancel', event => {
-  if (event.target === frontCover && event.animationName === 'passport-arrival') finishArrival();
+  if (event.target === frontCover && event.animationName === 'passport-arrival' && app.classList.contains('is-arriving')) finishArrival();
+});
+scene.addEventListener('click', () => {
+  if (app.classList.contains('is-arriving')) setCoverOpen(true);
 });
 reducedMotion.addEventListener('change', () => {
-  if (reducedMotion.matches) finishArrival();
+  if (reducedMotion.matches) completeArrival();
 });
 let turningTimer;
 let turnToken = 0;
