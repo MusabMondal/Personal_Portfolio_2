@@ -165,13 +165,17 @@ mobileSelect.addEventListener('change', () => {
 });
 
 const skills = [...source.querySelectorAll('.skills-passport article')];
-for (const [start, end] of [[0, 3], [3, 5]]) {
-  addPage('Skills', start === 0 ? 'Languages & systems' : 'Platforms & tooling', `<div class="document-heading"><span>TECHNICAL ENDORSEMENTS</span><span>${start === 0 ? 'I' : 'II'}</span></div><h2 class="folio-title">${start === 0 ? 'The toolkit.' : 'Built to deliver.'}</h2><div class="folio-skills">${skills.slice(start, end).map(skill => skill.outerHTML).join('')}</div>${start ? '<div class="skill-extra"><h3>Applied in projects</h3><p>TensorFlow · Keras · NumPy · OpenCV · Swift · SwiftUI · MQTT</p></div>' : ''}`, 'skills-sheet');
+for (const [start, end] of [[0, 3], [3, 6]]) {
+  addPage('Skills', start === 0 ? 'Languages & systems' : 'Platforms & tooling', `
+    <div class="document-heading"><span>THE ENGINEERING TOOLKIT</span><span>${start === 0 ? '01 / 02' : '02 / 02'}</span></div>
+    <div class="skills-page-heading"><p class="folio-eyebrow">${start === 0 ? 'CODE · SYSTEMS · PRODUCTS' : 'DATA · DELIVERY · EXPLORATION'}</p><h2>${start === 0 ? 'Built from the basics.' : 'Ready for the real world.'}</h2></div>
+    <div class="folio-skills">${skills.slice(start, end).map(skill => skill.outerHTML).join('')}</div>
+  `, 'skills-sheet');
 }
 addPage('Education', 'McMaster University', `<div class="document-heading"><span>ACADEMIC RECORD</span><span>2027</span></div>${content('.education-main')}`, 'education-sheet');
 addPage('Education', 'Continued learning', `<div class="document-heading"><span>CONTINUED LEARNING</span><span>ENDORSEMENTS</span></div><h2 class="folio-title">Always a student.</h2>${content('.certifications')}`, 'certificates-sheet');
-addPage('Contact', 'Get in touch', `<p class="folio-eyebrow">THE NEXT CHAPTER</p><h2 class="folio-title">Let’s build<br>what’s next.</h2><p>I’m interested in software engineering opportunities across embedded systems, backend and full-stack development, test infrastructure, and applied machine learning.</p><div class="contact-links"><a href="mailto:musab.mondal321@gmail.com"><small>EMAIL</small>musab.mondal321@gmail.com</a><a href="https://www.linkedin.com/in/musabuddin-mondal" target="_blank" rel="noreferrer"><small>LINKEDIN</small>Musabuddin Mondal</a><a href="https://github.com/MusabMondal" target="_blank" rel="noreferrer"><small>GITHUB</small>@MusabMondal</a></div>`, 'contact-sheet');
-addPage('Contact', 'End of passport', `<div class="end-seal"><span>ENGINEERING PASSPORT</span><strong>MM</strong><span>MUSABUDDIN MONDAL</span></div><p class="end-note">Thanks for taking a look.<br>There’s more to come.</p><button class="folio-button" type="button" data-chapter="Profile">Back to the first page</button>`, 'end-sheet');
+addPage('Contact', 'Get in touch', `<div class="document-heading"><span>LET’S CONNECT</span><span>THE NEXT CHAPTER</span></div>${content('.contact-panel')}`, 'contact-sheet');
+addPage('Contact', 'End of passport', `<div class="document-heading"><span>UNTIL NEXT TIME</span><span>MM / 2027</span></div>${content('.closing-card')}<button class="contact-restart" type="button" data-chapter="Profile">Back to the beginning <span aria-hidden="true">↶</span></button>`, 'end-sheet');
 
 const totalSpreads = pages.length / 2;
 function pageMarkup(index, side) {

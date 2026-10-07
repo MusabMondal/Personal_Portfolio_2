@@ -130,33 +130,83 @@
 .folio-project-list p:not(.folio-eyebrow) { font-size: 13px; color: #69735e; margin: 0; }
 .repo-link { display: inline-block; margin-top: 17px; color: #31503a; border-bottom: 1px solid #a1ad91; font-size: 12px; }
 .folio-button { display: inline-block; margin-top: 30px; padding: 14px 20px; border: 1px solid #173f35; background: #173f35; color: #fff; font: 13px var(--sans); border-radius: 3px; cursor: pointer; }
-.folio-skills article { display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: center; padding: 25px 0; border-top: 1px solid #b5bea170; }
-.folio-skills .skill-seal { width: 62px; height: 62px; font-size: 12px; }
-.folio-skills article span { color: #85856a; font: 9px var(--mono); text-transform: uppercase; }
-.folio-skills h3 { margin: 7px 0; font: 26px var(--serif); }
-.folio-skills p { font-size: 13px; color: #65725c; margin: 0; }
-.skill-extra { margin-top: 20px; padding: 20px; background: #7383630e; border: 1px solid #b5bea1; }
-.skill-extra h3 { font: 24px var(--serif); margin: 0; }
-.skill-extra p { font-size: 13px; color: #65725c; }
-.education-sheet .education-main { padding: 28px 0 0; min-height: 0; border: 0; }
-.education-sheet .crest { width: 70px; height: 70px; margin-bottom: 26px; }
-.education-sheet .page-kicker { font-size: 9px; line-height: 1.7; }
-.education-sheet h3 { font: 42px/1.02 var(--serif); margin: 22px 0 28px; }
-.education-sheet .education-meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 10px; }
-.education-sheet .coursework { font-size: 14px; margin-top: 26px; }
-.certificates-sheet .certifications { min-height: 395px; padding: 0; }
-.certificates-sheet .certifications h4 { font-size: 24px; }
-.certificates-sheet .certifications article { padding: 24px 0; }
-.certificates-sheet .cert-stamp { bottom: 3px; right: 20px; }
-.contact-links { display: grid; margin-top: 28px; }
-.contact-links a { padding: 19px 0; border-top: 1px solid #b5bea1; font-size: 14px; overflow-wrap: anywhere; }
-.contact-links small { display: block; color: #8b8e70; font: 9px var(--mono); letter-spacing: .1em; margin-bottom: 7px; }
-.end-sheet { background-color: #dfe4d1; }
-.end-sheet .paper-scroll { display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.end-seal { width: 230px; height: 230px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; border: 3px double #657d55; border-radius: 50%; color: #5c744e; }
-.end-seal span { font: 9px var(--mono); letter-spacing: .09em; }
-.end-seal strong { font: 68px var(--serif); }
-.end-note { text-align: center; margin-top: 30px; color: #647557; }
+.skills-page-heading { margin: 12px 0; }
+.skills-page-heading .folio-eyebrow { margin: 0 0 7px; font-size: 8px; letter-spacing: .08em; }
+#passport-app .skills-page-heading h2 { margin: 0; font: 500 31px/1.08 var(--sans); letter-spacing: -.035em; }
+.folio-skills { display: grid; gap: 10px; }
+.folio-skills .skill-card { padding: 9px 12px; border-radius: 8px; }
+.folio-skills .skill-card-heading { gap: 10px; margin-bottom: 6px; }
+.folio-skills .skill-icon { width: 32px; height: 32px; border-radius: 8px; }
+.folio-skills .skill-icon svg { width: 20px; height: 20px; }
+#passport-app .folio-skills h3 { font-size: 20px; line-height: 1.1; }
+#passport-app .folio-skills .skill-kicker { display: none; }
+.folio-skills .skill-number { font-size: 8px; }
+.folio-skills .skill-tags { gap: 4px; }
+.folio-skills .skill-tags li { padding: 3px 7px; font-size: 11px; }
+.skills-sheet .paper-scroll { padding-bottom: 4px; }
+/* A compact campus postcard leaves room for the complete academic record. */
+#passport-app .education-sheet .education-main { padding: 12px 0 0; min-height: 0; border: 0; }
+#passport-app .education-sheet .campus-photo { height: 138px; border-radius: 7px; }
+#passport-app .campus-badge { top: 10px; left: 12px; padding: 5px 7px; font-size: 7px; }
+#passport-app .campus-photo figcaption { inset: auto 14px 12px; gap: 4px; }
+#passport-app .campus-name { font-size: 25px; }
+#passport-app .campus-location { font-size: 7px; }
+#passport-app .education-details { padding: 14px 0 0; }
+#passport-app .degree-kicker { font: 8px/1.4 var(--mono); margin: 0; }
+#passport-app .education-sheet h3 { font: 500 27px/1.08 var(--sans); margin: 7px 0 12px; letter-spacing: -.03em; }
+#passport-app .education-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; border: 0; padding: 0; }
+#passport-app .education-meta > div { padding: 9px 11px; border-color: #b8a79070; }
+#passport-app .education-meta span { font-size: 7px; margin-bottom: 5px; color: #697387; }
+#passport-app .education-meta strong { font-size: 25px; color: #22354b; }
+#passport-app .education-meta small { font-size: 10px; color: #697387; }
+#passport-app .coursework { margin-top: 12px; }
+#passport-app .coursework h4 { font-size: 8px; margin-bottom: 6px; color: #697387; }
+#passport-app .coursework ul { gap: 4px; }
+#passport-app .coursework li { font-size: 11px; padding: 3px 6px; border-color: #b8a79070; color: #445568; }
+#passport-app .education-details .campus-credit { font: 7px/1.4 var(--mono); margin: 10px 0 0; color: #697387; }
+.education-sheet .paper-scroll { padding-bottom: 4px; }
+#passport-app .certificates-sheet .certifications { min-height: 0; padding: 0; }
+#passport-app .certificates-sheet .folio-title { font-size: 38px !important; margin: 18px 0 !important; }
+.certificates-sheet .paper-scroll { padding-bottom: 4px; }
+#passport-app .certificates-sheet .certifications > .page-kicker { display: none; }
+#passport-app .certifications article { padding: 16px; margin-bottom: 12px; border-color: #b8a79070; background: #fffcf766; }
+#passport-app .certificate-category { color: #697387; }
+#passport-app .certifications h4 { font-size: 22px; margin: 7px 0 10px; }
+#passport-app .certifications article p { font: 9px/1.5 var(--mono); color: #697387; }
+#passport-app .certificate-icon { color: #315d80; border-color: #315d8030; background: #315d8008; }
+#passport-app .learning-note { margin-top: 20px; padding-top: 12px; }
+#passport-app .learning-note p { font: 500 19px/1.2 var(--sans); color: #697387; }
+/* Contact content stays within the passport without a separate oversized seal. */
+#passport-app .contact-panel { padding-top: 14px; }
+#passport-app .contact-availability { font: 8px/1.4 var(--mono); color: #697387; margin: 0; }
+#passport-app .contact-availability > span { background: #9f7840; box-shadow: 0 0 0 3px #9f784012; }
+#passport-app .contact-panel h2 { font: 500 38px/1.04 var(--sans); margin: 13px 0 10px; color: #22354b; }
+#passport-app .contact-panel h2 > span { color: #526d8f; }
+#passport-app .contact-intro { font: 13px/1.5 var(--sans); color: #596779; margin: 0; }
+#passport-app .contact-links { gap: 8px; margin-top: 16px; }
+#passport-app .contact-link { gap: 10px; padding: 11px 13px; min-height: 62px; background: #fffdf477; border-color: #b8a79080; color: #22354b; }
+#passport-app .contact-link--email { background: #22354b; border-color: #22354b; color: #f8f1e6; }
+#passport-app .contact-link-icon { width: 23px; height: 23px; }
+#passport-app .contact-link-icon svg { width: 22px; height: 22px; }
+#passport-app .contact-link-copy strong { font-size: 15px; }
+#passport-app .contact-link-copy > span { font-size: 11px; }
+#passport-app .contact-link-arrow { width: 26px; height: 26px; border-color: #526d8f40; font-size: 15px; }
+#passport-app .contact-link--email .contact-link-arrow { border-color: #f8f1e650; }
+#passport-app .paper-page .contact-link:hover { text-decoration: none; border-color: #526d8f; }
+#passport-app .contact-link--email:hover { background: #304866; }
+#passport-app .closing-card { margin-top: 14px; padding: 22px; border-radius: 9px; }
+#passport-app .closing-topline { font-size: 7px; padding-bottom: 14px; }
+#passport-app .closing-profile { margin: 16px 0 20px; gap: 12px; }
+#passport-app .closing-profile img { width: 44px; height: 44px; }
+#passport-app .closing-profile strong { font-size: 18px; margin-bottom: 5px; }
+#passport-app .closing-profile span { font-size: 9px; }
+#passport-app .closing-message .closing-eyebrow { font: 7px/1.4 var(--mono); margin-bottom: 10px; }
+#passport-app .closing-message h3 { font: 500 34px/1.04 var(--sans); margin: 0; }
+#passport-app .closing-message .closing-thanks { font: 12px/1.5 var(--sans); margin: 14px 0 18px; }
+#passport-app .closing-details { padding-top: 14px; gap: 10px; }
+#passport-app .closing-details strong { font-size: 12px; }
+#passport-app .contact-restart { color: #596779; margin-top: 4px; }
+.contact-sheet .paper-scroll, .end-sheet .paper-scroll { padding-bottom: 4px; }
 #return-to-passport { position: fixed; bottom: 22px; right: 22px; z-index: 100; padding: 14px 20px; border: 1px solid #d4bd89; border-radius: 30px; color: #fff; background: #173f35; box-shadow: 0 4px 20px #0004; cursor: pointer; }
 @media (min-width: 761px) and (max-width: 1050px) {
   .passport-desk { padding-left: 3%; padding-right: 3%; }
@@ -259,13 +309,12 @@
 .folio-lead, .folio-work li strong, .repo-link { color: #183653; }
 .passport-photo { background: #e4e7e6; border-color: #bdab7d; }
 .folio-work li, .folio-project > p, .folio-project-list p:not(.folio-eyebrow),
-.folio-skills p, .skill-extra p, .welcome-sheet .paper-scroll > p:not(.folio-eyebrow) { color: #596779; }
+.welcome-sheet .paper-scroll > p:not(.folio-eyebrow) { color: #596779; }
 .folio-work li::before, .folio-eyebrow, .impact-records strong { color: #9c3e44; }
 .arrival-stamp { color: #a44046; border-color: #a44046; }
 .visa-banner { color: #1e4b6b; background: #1e4b6b0c; }
 .visa-1 { color: #a44046; background: #a440460b; }
 .folio-button, #return-to-passport { background: #142f4f; border-color: #142f4f; }
-.end-seal { color: #193d5f; border-color: #9f884f; }
 .book-hint { color: #b6c2d1; margin: 15px auto 0; letter-spacing: .025em; }
 .book-hint button { padding: 0; border: 0; border-bottom: 1px solid #72849c; color: #e0e8f2; background: none; font: inherit; cursor: pointer; }
 .book-controls { width: min(100%, 1020px); margin: 25px auto 0; }
@@ -551,15 +600,10 @@ body.book-mode { height: 100dvh; overflow: hidden; }
   .paper-page .tag-list li { font-size: 10px; }
   .repo-link, .folio-project .text-link { min-height: 44px; display: inline-flex; align-items: center; margin-top: 10px; font-size: 14px; }
   .folio-button { min-height: 44px; margin-top: 20px; }
-  .folio-skills article { grid-template-columns: 48px minmax(0, 1fr); padding: 18px 0; gap: 12px; }
-  .folio-skills .skill-seal { width: 48px; height: 48px; font-size: 10px; }
-  .folio-skills h3 { font-size: 24px; }
-  .folio-skills p { font-size: 14px; }
-  .education-sheet .education-main { padding-top: 20px; }
-  .education-sheet .crest { margin-bottom: 16px; }
+  #passport-app .skills-page-heading h2 { font-size: 29px; }
+  .folio-skills .skill-card { padding: 14px; }
+  .folio-skills .skill-tags li { font-size: 12px; }
   .certificates-sheet .certifications { min-height: 0; }
-  .end-sheet .paper-scroll { justify-content: flex-start; padding-top: 14px; }
-  .end-seal { width: 200px; max-width: 100%; min-height: 200px; flex-shrink: 0; }
   .impact-records article { grid-template-columns: 75px minmax(0, 1fr); padding: 16px 0; gap: 12px; }
   .impact-records strong { font-size: 30px; }
   .project-directory button { min-height: 52px; }
@@ -619,4 +663,44 @@ body.book-mode { height: 100dvh; overflow: hidden; }
 @media (max-width: 760px), (max-width: 960px) and (max-height: 500px) {
   #passport-app .folio-work h3 { font-size: 25px; }
   #passport-app .folio-work li { font-size: 13px; }
+}
+
+/* Compact skill cards keep the whole page visible on shorter phones. */
+@media (max-width: 760px) and (max-height: 740px) {
+  .skills-page-heading { margin: 10px 0; }
+  .skills-page-heading .folio-eyebrow { display: none; }
+  #passport-app .skills-page-heading h2 { font-size: 25px; }
+  .folio-skills { gap: 8px; }
+  .folio-skills .skill-card { padding: 8px 10px; }
+  .folio-skills .skill-icon { width: 28px; height: 28px; }
+  #passport-app .folio-skills h3 { font-size: 18px; }
+  .folio-skills .skill-tags { gap: 3px; }
+  .folio-skills .skill-tags li { padding: 2px 6px; font-size: 11px; }
+}
+
+@media (max-width: 760px) and (max-height: 740px) {
+  #passport-app .education-sheet .campus-photo { height: 108px; }
+  #passport-app .education-sheet h3 { font-size: 24px; }
+  #passport-app .education-details { padding-top: 10px; }
+  #passport-app .education-meta > div { padding: 7px 9px; }
+  #passport-app .coursework li { font-size: 10px; }
+  #passport-app .certificates-sheet .folio-title { font-size: 29px !important; margin: 12px 0 !important; }
+  #passport-app .certifications article { padding: 12px; gap: 10px; }
+  #passport-app .certifications h4 { font-size: 20px; }
+  #passport-app .learning-note { margin-top: 12px; }
+}
+
+@media (max-width: 760px) and (max-height: 740px) {
+  #passport-app .contact-panel { padding-top: 10px; }
+  #passport-app .contact-panel h2 { font-size: 31px; margin: 10px 0 8px; }
+  #passport-app .contact-intro { font-size: 12px; line-height: 1.45; }
+  #passport-app .contact-links { margin-top: 12px; gap: 6px; }
+  #passport-app .contact-link { padding: 9px 10px; min-height: 58px; }
+  #passport-app .contact-link-copy strong { font-size: 14px; }
+  #passport-app .closing-card { padding: 17px; margin-top: 10px; }
+  #passport-app .closing-profile { margin: 12px 0 16px; }
+  #passport-app .closing-profile strong { font-size: 16px; }
+  #passport-app .closing-profile span { font-size: 8px; }
+  #passport-app .closing-message h3 { font-size: 30px; }
+  #passport-app .closing-message .closing-thanks { margin: 12px 0 14px; }
 }
