@@ -370,6 +370,53 @@
   pointer-events: none;
 }
 .passport-front-cover:hover { filter: brightness(1.08); }
+
+/* Grow from the distance, swing beyond the right edge, then return to center. */
+.is-arriving .passport-front-cover {
+  animation: passport-arrival 3.2s both;
+  transform-origin: center center;
+  transition: none;
+  will-change: transform, opacity;
+}
+@keyframes passport-arrival {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate3d(-8vw, 4vh, -900px) scale(.08) rotateZ(-18deg) rotateY(-28deg);
+    animation-timing-function: cubic-bezier(.16, .7, .3, 1);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate3d(-5vw, -3vh, -100px) scale(.78) rotateZ(-12deg) rotateY(15deg);
+    animation-timing-function: cubic-bezier(.45, 0, .8, .35);
+  }
+  45% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate3d(8vw, -4vh, 70px) scale(1.03) rotateZ(12deg) rotateY(-22deg);
+    animation-timing-function: cubic-bezier(.35, .1, .65, 1);
+  }
+  59% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate3d(115vw, -7vh, 0) scale(1.02) rotateZ(24deg) rotateY(-30deg);
+    animation-timing-function: linear;
+  }
+  63% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate3d(115vw, 2vh, -80px) scale(.92) rotateZ(-16deg) rotateY(18deg);
+    animation-timing-function: cubic-bezier(.12, .75, .24, 1);
+  }
+  86% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate3d(-3vw, 0, 35px) scale(1.02) rotateZ(-3deg) rotateY(6deg);
+    animation-timing-function: cubic-bezier(.25, .6, .3, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate3d(0, 0, 0) scale(1) rotateZ(0deg) rotateY(0deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .is-arriving .passport-front-cover { animation: none; }
+}
 .is-open .passport-front-cover {
   transform: translate(-50%, -50%) rotateY(-165deg);
   opacity: 0;

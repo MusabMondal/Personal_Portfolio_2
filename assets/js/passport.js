@@ -20,6 +20,29 @@ const pages = [];
 let spread = 0;
 let coverOpen = true;
 let turning = false;
+let arrivalTimer;
+
+function finishArrival() {
+  clearTimeout(arrivalTimer);
+  app.classList.remove('is-arriving');
+}
+
+function startArrival() {
+  if (reducedMotion.matches) return;
+  app.classList.add('is-arriving');
+  // Also settle if an animation-end event is missed while the tab is hidden.
+  arrivalTimer = setTimeout(finishArrival, 3400);
+}
+
+frontCover.addEventListener('animationend', event => {
+  if (event.target === frontCover && event.animationName === 'passport-arrival') finishArrival();
+});
+frontCover.addEventListener('animationcancel', event => {
+  if (event.target === frontCover && event.animationName === 'passport-arrival') finishArrival();
+});
+reducedMotion.addEventListener('change', () => {
+  if (reducedMotion.matches) finishArrival();
+});
 let turningTimer;
 let turnToken = 0;
 
@@ -232,6 +255,7 @@ function updateControls() {
 }
 
 function setCoverOpen(open) {
+  if (open) finishArrival();
   if (turning || coverOpen === open) return;
   coverOpen = open;
   app.classList.toggle('is-open', open);
@@ -371,6 +395,7 @@ scene.addEventListener('click', event => {
 scene.addEventListener('dragstart', event => { if (coverOpen) event.preventDefault(); });
 
 function setBookMode(enabled) {
+  if (!enabled) finishArrival();
   document.body.classList.toggle('book-mode', enabled);
   document.body.classList.toggle('reading-mode', !enabled);
   app.hidden = !enabled;
@@ -393,6 +418,7 @@ document.querySelector('#return-to-passport').addEventListener('click', () => {
   scene.focus({ preventScroll: true });
 });
 narrow.addEventListener('change', () => {
+  finishArrival();
   if (drag) endDrag({ pointerId: drag.id }, true);
   clearTimeout(turningTimer);
   leaf.ontransitionend = null;
@@ -408,4 +434,5 @@ narrow.addEventListener('change', () => {
 });
 render();
 setCoverOpen(false);
+startArrival();
 setBookMode(true);
