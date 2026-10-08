@@ -113,7 +113,7 @@ addPage('Profile', 'Personal details', `
   <div class="identity-heading"><span class="document-symbol" aria-hidden="true">◎</span><div><p>Engineering passport</p><h1>Musabuddin<br>Mondal</h1></div></div>
   <div class="passport-id-grid"><figure class="passport-photo"><img src="/musab-portrait.jpg" alt="Portrait of Musabuddin Mondal" width="387" height="387"><figcaption>HOLDER PHOTO</figcaption></figure>
   <dl class="passport-details"><div><dt>Surname</dt><dd>MONDAL</dd></div><div><dt>Given names</dt><dd>MUSABUDDIN</dd></div><div><dt>Field of study</dt><dd>Software Engineering</dd></div><div><dt>University</dt><dd>McMaster University</dd></div><div><dt>Expected graduation</dt><dd>2027</dd></div></dl></div>
-  <dl class="identity-contact"><div><dt>Email</dt><dd><a href="mailto:musab.mondal321@gmail.com">musab.mondal321@gmail.com</a></dd></div><div><dt>Phone</dt><dd><a href="tel:+15197312857">+1 (519) 731-2857</a></dd></div></dl>
+  <dl class="identity-contact"><div><dt>Email</dt><dd><a href="mailto:musab.mondal321@gmail.com">musab.mondal321@gmail.com</a></dd></div></dl>
   <div class="passport-signature" aria-label="Musabuddin Mondal">Musabuddin Mondal<span>HOLDER’S SIGNATURE</span></div>
   <div class="mrz" aria-hidden="true">P&lt;PORTFOLIO&lt;MONDAL&lt;&lt;MUSABUDDIN&lt;&lt;<br>SOFTWARE&lt;ENGINEERING&lt;&lt;2027&lt;&lt;&lt;&lt;&lt;</div>
 `, 'identity-sheet');
